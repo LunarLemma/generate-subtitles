@@ -1,0 +1,22 @@
+{
+  "name": "generate-subtitles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": { 
+    "download": "chmod +x ./lib/download.js"},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "node-vtt-to-srt": "^1.0.1",
+    "nodemon": "^3.1.0",
+    "readline-sync": "^1.4.10",
+    "shelljs": "^0.8.5"
+  }
+}
