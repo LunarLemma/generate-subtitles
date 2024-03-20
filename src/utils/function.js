@@ -42,9 +42,7 @@ function validator({inputType, inputFile, outputDir, outputFormat, whisperModel}
             // Check for model availability
             locateIOandModel(whisperModel, inputFile, outputDir)
             .then((response)=> {
-              if(response.code == 1)
-                console.log(response.message);
-              else 
+              if(response.code != 1)
                 return reject(response.message);
               return resolve({success: true, modelPath: response.modelPath});
             });
@@ -78,7 +76,7 @@ function normalizeIO({ inputFile, outputDir, inputType, outputFormat}) {
       }).then((getAudioDestination)=>{
         if(getAudioDestination) inputFile= getAudioDestination;
         else reject("File could not be converted to audio format");
-        console.log(`|| Generate-Subtitles || A temproray file with name ${inputFileName+ ".wav"} will be created at Output directory...`);
+        // console.log(`|| Generate-Subtitles || A temproray file with name ${inputFileName+ ".wav"} will be created at Output directory...`);
         return resolve({inputFile, outputFile});
       }).catch(error=>{
         return reject(error);

@@ -20,7 +20,7 @@ function executeCommand({inputFile, modelPath, outputFile, whisperFlags}) {
             transcribe= txtToVtt(transcribe);
             return writeToFile( outputFile, transcribe);
         }).then((res) => {
-            if(res) console.log(`|| Generate-Subtitles || An ${whisperFlags.subFormat} file has been successfully created`);
+            // if(res) console.log(`|| Generate-Subtitles || An ${whisperFlags.subFormat} file has been successfully created`);
             resolve(inputFile);
         })
         .catch((error) => {

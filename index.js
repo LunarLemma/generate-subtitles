@@ -45,8 +45,7 @@ async function generate({ inputFile, outputDir, inputType, whisperFlags, enableT
                 return cleanUp(modifiedFile);
             else return resolve(true);
         }).then((done)=> {
-            console.log("I fired");
-            console.log("|| Generate-Subtitles || The temporary file has been cleaned up");
+            // console.log("|| Generate-Subtitles || The temporary file has been cleaned up.");
             return resolve(true);
         })
         .catch((error)=> {
