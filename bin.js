@@ -2,7 +2,7 @@
 const shell= require('shelljs');
 const readlineSync= require('readline-sync');
 const fs= require('fs');
-const {MODEL_LIST, DEFAULT_MODEL} = require("../src/utils/static_definitions");
+const {MODEL_LIST, DEFAULT_MODEL} = require("./src/utils/static_definitions");
 
 function modelCLI() {
     const cliResponse= readlineSync.question(`\n|| Auto-Subtitles-Download-Script || \nEnter the model name to be download\n-Empty for default(${DEFAULT_MODEL}) model \n-Ctrl+C(^C) to exit \n`);
@@ -32,7 +32,7 @@ function formattedModelTable() {
 async function model_downloader() {
     try {
         console.log("*** || Auto-Subtitles-Download-Script || ***");
-        shell.cd(`${__dirname}/whisper.cpp/models`);
+        shell.cd(`${__dirname}/lib/whisper.cpp/models`);
         if(!shell.which('./download-ggml-model.sh')) throw new Error('|| Auto-Subtitles-Download-Script || Error in running download executable');
         formattedModelTable();
         const fetchModel= modelCLI();
