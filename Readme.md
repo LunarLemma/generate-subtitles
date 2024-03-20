@@ -1,6 +1,7 @@
 # Generate-Subtitles
 
 ---
+[Github Repo](https://github.com/LunarLemma/generate-subtitles)
 
 ### To Install
 
@@ -14,7 +15,7 @@ This package parses video and audio files, to generate .vtt formatted subtitle f
 
 The package is built upon 
 
-- [Openai-whisper]([Introducing Whisper](https://openai.com/research/whisper)) | OpenAI's open source model 
+- [Introducing Whisper](https://openai.com/research/whisper) | OpenAI's open source model 
 
 - [Whisper.cpp](https://github.com/ggerganov/whisper.cpp) | A custom cpp implementation of whisper model in C++.
 
