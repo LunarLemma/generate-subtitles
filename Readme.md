@@ -70,12 +70,13 @@ const options = {
 }
 ```
 
-- Pass it to the function.
+- Pass it to the function, which then outputs the .vtt file to output directory, with same name as input file.
 
 ```js
 try {
     const getSubtiles= await generate(options);
     //resolves with true
+    //An output file is generat
 } catch(error) {
    // rejects with an error
 }
@@ -83,6 +84,20 @@ try {
 
 ---
 
+##### Miscellaneous
+
+- When using audio input file, it requires .wav format at 16KHz frequency
+
+- In windows based system, make([Make for Windows](https://gnuwin32.sourceforge.net/packages/make.htm)).
+
+---
 
 
 
+### Acknowledgements
+
+- [Openai-whisper]([Introducing Whisper](https://openai.com/research/whisper)) 
+
+- [Whisper.cpp](https://github.com/ggerganov/whisper.cpp) 
+
+- [whisper-node](https://github.com/ariym/whisper-node) 
