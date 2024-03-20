@@ -10,7 +10,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Akshat Singh",
   "license": "ISC",
   "dependencies": {
     "ffmpeg-static": "^5.2.0",
