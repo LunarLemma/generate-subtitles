@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": { 
-    "download": "chmod +x ./lib/download.js"},
+    "download": "./lib/download.js"},
   "scripts": {
     "start": "node index.js"
   },
