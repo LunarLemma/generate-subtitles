@@ -14,26 +14,44 @@
 const { validator , normalizeIO} = require("./src/utils/function");
 const { executeCommand} = require("./src/cli/run");
 const { cleanUp } = require("./src/utils/fileSetup");
+
+function parseOptions(options) {
+    if(options.inputFile) options.inputFile= options.inputFile.toLowerCase();
+    if(options.outputDir) outputDir= options.outputDir.toLowerCase();
+    if(options.inputType) options.inputType= options.inputType.toLowerCase();
+    if(options.whisperFlags) {
+        if(options.whisperFlags.subFormat) options.whisperFlags.subFormat= options.whisperFlags.subFormat.toLowerCase();
+        if(options.whisperFlags.model) options.whisperFlags.model= options.whisperFlags.model.toLowerCase();
+        if(options.whisperFlags.language) options.whisperFlags.language= options.whisperFlags.model.toLowerCase();
+    }
+}
 /**
  * Asynchronously generates subtitles based on input file and flags.
  * @param {Object} options - An object containing options for generation.
  * @param {string} options.inputFile - The path or name of the input file.
- * @param {string} options.outputDir - The directory where the output will be saved.
- * @param {string} options.inputType - The type of input data.
+ * @param {string} [options.outputDir] - The directory where the output will be saved.
+ * @param {string} options.inputType - The type of input data ('audio', 'video').
  * @param {Object} options.whisperFlags - An object containing flags for whispering.
- * @param {string} options.whisperFlags.subFormat - The subtitle format to generate.
+ * @param {string} [options.whisperFlags.subFormat] - The subtitle format to generate ('srt', 'vtt').
  * @param {string} options.whisperFlags.model - The model to use for generation.
- * @param {string} options.whisperFlags.language - The language for subtitles.
- * @param {number} options.whisperFlags.threadCount - The number of threads to use.
- * @param {boolean} options.enableTraceLogs - A flag to enable trace logs.
- * @returns {Promise<boolean>} - A promise that resolves true when the file is succesfully generated
+ * @param {string} [options.whisperFlags.language] - The language for subtitles.
+ * @param {number} [options.whisperFlags.threadCount] - The number of threads to use.
+ * @param {boolean} [options.enableTraceLogs] - A flag to enable trace logs.
+ * @returns {Promise<boolean>} 
+ * A promise that resolves true when the file is successfully generated, or rejects with an error.
+ * -[Possible rejection reasons]
+ * - Issue in validating input params
+ * - File may not exist
+ * - Model may not exist
+ * - Other relevant issues
  */
-async function generate({ inputFile, outputDir, inputType, whisperFlags, enableTraceLogs}) {
+async function generate(options) {
+    parseOptions(options);
+    let { inputFile, outputDir, inputType, whisperFlags, enableTraceLogs} = options;
     //! TODO: Add benchmarking flags for user, sending user performance
     //! TODO: Add support for srt: parse the vtt output from openAI TO srt
-    whisperFlags.subFormat= "vtt";
-    let modelPath="";
     return new Promise((resolve, reject) => {
+        if(!checkInput) reject(validate.errors);
         validator({inputType, inputFile, outputDir, outputFormat: whisperFlags.subFormat, whisperModel: whisperFlags.model })
         .then((isValid)=> {
             if(isValid.success) modelPath= isValid.modelPath;

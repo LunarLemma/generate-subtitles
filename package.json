@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "bin": { 
-    "download": "./lib/download.js"},
+  "bin": {
+    "download": "chmod +x ./lib/download.js"
+  },
   "scripts": {
     "start": "node index.js"
   },
