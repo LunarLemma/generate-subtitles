@@ -1,6 +1,6 @@
 {
   "name": "generate-subtitles",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Takes media file input to generate .vtt subtile files with support for threads.",
   "main": "index.js",
   "bin": "./bin.js",

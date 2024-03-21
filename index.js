@@ -16,8 +16,6 @@ const { executeCommand} = require("./src/cli/run");
 const { cleanUp } = require("./src/utils/fileSetup");
 
 function parseOptions(options) {
-    if(options.inputFile) options.inputFile= options.inputFile.toLowerCase();
-    if(options.outputDir) outputDir= options.outputDir.toLowerCase();
     if(options.inputType) options.inputType= options.inputType.toLowerCase();
     if(options.whisperFlags) {
         if(options.whisperFlags.subFormat) options.whisperFlags.subFormat= options.whisperFlags.subFormat.toLowerCase();
@@ -50,8 +48,8 @@ async function generate(options) {
     let { inputFile, outputDir, inputType, whisperFlags, enableTraceLogs} = options;
     //! TODO: Add benchmarking flags for user, sending user performance
     //! TODO: Add support for srt: parse the vtt output from openAI TO srt
+    whisperFlags.subFormat= '.vtt';
     return new Promise((resolve, reject) => {
-        if(!checkInput) reject(validate.errors);
         validator({inputType, inputFile, outputDir, outputFormat: whisperFlags.subFormat, whisperModel: whisperFlags.model })
         .then((isValid)=> {
             if(isValid.success) modelPath= isValid.modelPath;
