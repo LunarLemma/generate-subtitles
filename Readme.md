@@ -95,10 +95,12 @@ try {
 ---
 
 ### Changelogs
+@1.0.6
+- Fix: Language had an error, where it took input as model name.
 @1.0.5
-- Fix, removed redundant check input.
-- Working, when outputDir is given a filename.
-- Fix, removed unecessary lower case checks.
+- Fix: removed redundant check input.
+- Fix: OutputDir takes a filename, and outputs to that file.
+- Fix: removed unecessary lower case checks.
   
   ### Acknowledgements
 

@@ -20,7 +20,7 @@ function parseOptions(options) {
     if(options.whisperFlags) {
         if(options.whisperFlags.subFormat) options.whisperFlags.subFormat= options.whisperFlags.subFormat.toLowerCase();
         if(options.whisperFlags.model) options.whisperFlags.model= options.whisperFlags.model.toLowerCase();
-        if(options.whisperFlags.language) options.whisperFlags.language= options.whisperFlags.model.toLowerCase();
+        if(options.whisperFlags.language) options.whisperFlags.language= options.whisperFlags.language.toLowerCase();
     }
 }
 /**
