@@ -94,7 +94,9 @@ try {
 ---
 
 
-
+### Changelogs
+- Fix, removed redundant check input.
+- Fix, removed unecessary lower case checks.
 ### Acknowledgements
 
 - [Openai-whisper]([Introducing Whisper](https://openai.com/research/whisper)) 
