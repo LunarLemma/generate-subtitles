@@ -1,13 +1,14 @@
 # Generate-Subtitles
 
 ---
-[Github Repo](https://github.com/LunarLemma/generate-subtitles)
 
 ### To Install
 
 ```npmignore
 npm i generate-subtitles
 ```
+
+Checkout source code at [generate-subtitles repo](https://github.com/LunarLemma/generate-subtitles) 
 
 ## Description
 
@@ -93,11 +94,13 @@ try {
 
 ---
 
-
 ### Changelogs
+@1.0.5
 - Fix, removed redundant check input.
+- Working, when outputDir is given a filename.
 - Fix, removed unecessary lower case checks.
-### Acknowledgements
+  
+  ### Acknowledgements
 
 - [Openai-whisper]([Introducing Whisper](https://openai.com/research/whisper)) 
 

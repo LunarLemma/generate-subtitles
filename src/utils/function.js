@@ -24,10 +24,6 @@ const { fetchAudio } = require("./ffmpeg");
 async function locateIOandModel(modelName, inputFile, outputDir) {
     const checkInput= await exist(inputFile);
     if(!checkInput) return { code: 0, message: "Input file doesn't exist"};
-    if(outputDir){
-      const checkOutputDir = await exist(outputDir);
-      if(!checkOutputDir) return { code: 0, message: "Output location(dir/file) doesn't exist"}
-    }
     let getModelPath= path.resolve(`${addTrailingDirChar(__dirname)}../../${MODEL_PATH+NAME_CPP_MODEL_MAP[modelName]}`);
     let checkModel= await exist(getModelPath);
     if(checkModel) 
