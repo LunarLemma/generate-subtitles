@@ -7,15 +7,25 @@
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": ["whisper", "openai", "subtitle", "vtt", "threads"],
+  "keywords": [
+    "whisper",
+    "openai",
+    "subtitle",
+    "vtt",
+    "threads"
+  ],
   "author": "Akshat Singh",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^20.11.30",
     "ffmpeg-static": "^5.2.0",
     "fluent-ffmpeg": "^2.1.2",
     "node-vtt-to-srt": "^1.0.1",
     "nodemon": "^3.1.0",
     "readline-sync": "^1.4.10",
-    "shelljs": "^0.8.5"
+    "save": "^2.9.0",
+    "shelljs": "^0.8.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
   }
 }
